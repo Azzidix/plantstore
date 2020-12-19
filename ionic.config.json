@@ -1,0 +1,7 @@
+{
+  "name": "plantstore",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
