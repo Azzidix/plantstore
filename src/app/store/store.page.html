@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>store</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Store</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-segment (ionChange)="onFilterUpdate($event)" value="information">
+    <ion-segment-button value="information">Information</ion-segment-button>
+    <ion-segment-button value="transaction">Transaction</ion-segment-button>
+    <ion-segment-button value="product">Product</ion-segment-button>
+  </ion-segment>
 
 </ion-content>

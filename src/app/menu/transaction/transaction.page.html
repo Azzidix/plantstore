@@ -1,9 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>transaction</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Transaction</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-segment (ionChange)="onFilterUpdate($event)" value="latest">
+    <ion-segment-button value="latest">Latest</ion-segment-button>
+    <ion-segment-button value="complete">Complete</ion-segment-button>
+  </ion-segment>
 
 </ion-content>
