@@ -75,6 +75,12 @@ const routes: Routes = [
       import("./store/store.module").then((m) => m.StorePageModule),
     canLoad: [AuthGuard],
   },
+  {
+    path: "search",
+    loadChildren: () =>
+      import("./menu/search/search.module").then((m) => m.SearchPageModule),
+    canLoad: [AuthGuard],
+  },
 ];
 
 @NgModule({
