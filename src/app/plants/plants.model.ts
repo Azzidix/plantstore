@@ -1,8 +1,9 @@
 export class Plants {
   constructor(
-    public id: String,
-    public name: String,
-    public price: Number,
-    public description: String
+    public id: string,
+    public name: string,
+    public price: number,
+    public description: string,
+    public imageUrl: string
   ) {}
 }
