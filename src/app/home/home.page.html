@@ -15,7 +15,7 @@
 <ion-content>
   <ion-row>
     <ion-col size="6" *ngFor="let plant of loadedPlants">
-      <ion-card size="12" [routerLink]="['/','plants']">
+      <ion-card size="12" [routerLink]="['/','plants',plant.id]">
         <ion-img [src]="plant.imageUrl"></ion-img>
         <ion-card-content>
           <ion-card-title>
