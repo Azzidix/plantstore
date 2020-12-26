@@ -9,6 +9,10 @@ const routes: Routes = [
     component: PlantsPage
   },
   {
+    path: ':plantId',
+    loadChildren: () => import('./plants.module').then(m => m.PlantsPageModule)
+  },
+  {
     path: 'plant-item',
     loadChildren: () => import('./plant-item/plant-item.module').then( m => m.PlantItemPageModule)
   },

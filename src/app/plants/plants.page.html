@@ -3,10 +3,37 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Plants</ion-title>
+    <ion-title>Plant</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/','checkout']">
+        <ion-icon name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <ion-col size="12">
+      <ion-img [src]="plant.imageUrl"></ion-img>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title>{{ plant.name }}</ion-title>
+    </ion-col>
+    <ion-col size="12" class="ion-padding">
+      <ion-text>{{ plant.description }}</ion-text>
+    </ion-col>
+  </ion-row>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-text class="ion-padding-horizontal"><h4>{{ plant.price | currency:"$":true:"1.1" }}</h4></ion-text>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary">Add Cart</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
