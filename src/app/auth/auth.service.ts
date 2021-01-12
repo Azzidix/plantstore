@@ -1,14 +1,22 @@
 import { Injectable } from "@angular/core";
+import { Users } from "./users.model";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
   private _userIsAuthenticated = true;
-  private _userId = 'abc';
-  private _userRole = 'buyer';
+  private _userId: string;
+  private _userRole: string;
 
-  constructor() {}
+  private user: Users[] = [
+    new Users('ab1','seler@gmail.com','123456','Purwokerto','seler'),
+    new Users('ab2','buyer@gmail.com','123456','Jakarta','buyer')
+  ]
+
+  constructor() {
+    
+  }
 
   get userIsAuthenticated() {
     return this._userIsAuthenticated;
