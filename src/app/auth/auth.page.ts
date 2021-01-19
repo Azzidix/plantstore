@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class AuthPage implements OnInit {
   constructor(
     private loadingCtrl: LoadingController,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertCtrl: AlertController
   ) {}
 
   ngOnInit() {}
@@ -29,7 +30,6 @@ export class AuthPage implements OnInit {
 
     this.authService.login(this.form.value.email, this.form.value.password);
     this.isLoading = true;
-    // console.log(this.form.value);
     this.loadingCtrl
       .create({ keyboardClose: true, message: 'Logging in...' })
       .then((loadingEl) => {
@@ -41,9 +41,23 @@ export class AuthPage implements OnInit {
             loadingEl.dismiss();
             this.router.navigateByUrl('/home');
           } else {
-            console.log('Not Autenticated');
             this.isLoading = false;
             loadingEl.dismiss();
+            this.alertCtrl
+              .create({
+                header: 'Login Failed!',
+                message: 'Email or Password not match',
+                buttons: [
+                  {
+                    text: 'Close',
+                    role: 'cancel',
+                  },
+                ],
+              })
+              .then((e) => {
+                e.present();
+              });
+            console.log('Not Autenticated');
           }
         }, 1000);
       });

@@ -5,7 +5,7 @@ import { Users } from '../components/users.model';
   providedIn: 'root',
 })
 export class AuthService {
-  private _userIsAuthenticated = true;
+  private _userIsAuthenticated = false;
   private _userId: string;
   private _userRole: string;
 
