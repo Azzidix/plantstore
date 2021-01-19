@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
-import { AuthService } from './auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -21,7 +21,11 @@ export class AuthPage implements OnInit {
     private alertCtrl: AlertController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.authService.userIsAuthenticated == true) {
+      this.router.navigateByUrl('/home');
+    }
+  }
 
   onLogin() {
     if (!this.form.valid) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Plants } from '../../interfaces/plants.interface';
+import { Plants } from '../../interfaces/plants';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';

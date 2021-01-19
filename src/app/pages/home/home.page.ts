@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Plants } from '../../interfaces/plants.interface';
+import { Plants } from '../../interfaces/plants';
 import { FirebaseService } from '../../services/firebase.service';
 
 @Component({

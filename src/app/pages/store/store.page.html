@@ -30,7 +30,9 @@
           <ion-card-content>
             {{plant.description}}
             <ion-buttons>
-              <!-- <ion-button color="primary">Edit</ion-button> -->
+              <ion-button (click)="onEdit(plant.id)" color="primary"
+                >Edit</ion-button
+              >
               <ion-button (click)="onDelete(plant.id)" color="danger"
                 >Delete</ion-button
               >

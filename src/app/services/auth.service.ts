@@ -5,16 +5,32 @@ import { Users } from '../components/users.model';
   providedIn: 'root',
 })
 export class AuthService {
-  private _userIsAuthenticated = false;
+  private _userIsAuthenticated = true;
   private _userId: string;
   private _userRole: string;
 
-  private user: Users[] = [
-    new Users('ab1', 'seler@gmail.com', '123456', 'Purwokerto', 'seler'),
-    new Users('ab2', 'buyer@gmail.com', '123456', 'Jakarta', 'buyer'),
+  user: Users[] = [
+    {
+      userId: '001',
+      name: 'Ayana',
+      address: 'Jakarta',
+      email: 'ayana@gmail.com',
+      password: '123456',
+      userRole: 'seller',
+    },
+    {
+      userId: '002',
+      name: 'Bagas',
+      address: 'Purwokerto',
+      email: 'bagas@gmail.com',
+      password: '123456',
+      userRole: 'buyer',
+    },
   ];
 
-  constructor() {}
+  constructor() {
+    console.log(this.user);
+  }
 
   get userIsAuthenticated() {
     return this._userIsAuthenticated;

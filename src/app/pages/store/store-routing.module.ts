@@ -6,16 +6,34 @@ import { StorePage } from './store.page';
 const routes: Routes = [
   {
     path: '',
-    component: StorePage
+    component: StorePage,
   },
   {
-    path: 'store-transaction',
-    loadChildren: () => import('./store-transaction/store-transaction.module').then( m => m.StoreTransactionPageModule)
+    path: 'transaction',
+    loadChildren: () =>
+      import('./store-transaction/store-transaction.module').then(
+        (m) => m.StoreTransactionPageModule
+      ),
   },
   {
-    path: 'store-product',
-    loadChildren: () => import('./store-product/store-product.module').then( m => m.StoreProductPageModule)
-  }
+    path: 'product',
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./store-product/store-product.module').then(
+            (m) => m.StoreProductPageModule
+          ),
+      },
+      {
+        path: 'product/edit/:productId',
+        loadChildren: () =>
+          import('./store-product/store-product.module').then(
+            (m) => m.StoreProductPageModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
