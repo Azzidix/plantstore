@@ -1,84 +1,90 @@
-import { NgModule } from "@angular/core";
-import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "./auth/auth.guard";
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
-    path: "home",
+    path: 'home',
     loadChildren: () =>
-      import("./home/home.module").then((m) => m.HomePageModule),
+      import('./pages/home/home.module').then((m) => m.HomePageModule),
     canLoad: [AuthGuard],
   },
   {
-    path: "",
-    redirectTo: "home",
-    pathMatch: "full",
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
   {
-    path: "auth",
+    path: 'auth',
     loadChildren: () =>
-      import("./auth/auth.module").then((m) => m.AuthPageModule),
+      import('./auth/auth.module').then((m) => m.AuthPageModule),
   },
   {
-    path: "plants",
+    path: 'plants',
     loadChildren: () =>
-      import("./plants/plants.module").then((m) => m.PlantsPageModule),
+      import('./pages/plants/plants.module').then((m) => m.PlantsPageModule),
     canLoad: [AuthGuard],
   },
   {
-    path: "store",
+    path: 'store',
     loadChildren: () =>
-      import("./store/store.module").then((m) => m.StorePageModule),
+      import('./pages/store/store.module').then((m) => m.StorePageModule),
     canLoad: [AuthGuard],
   },
   {
-    path: "checkout",
+    path: 'checkout',
     loadChildren: () =>
-      import("./checkout/checkout.module").then((m) => m.CheckoutPageModule),
+      import('./pages/checkout/checkout.module').then(
+        (m) => m.CheckoutPageModule
+      ),
     canLoad: [AuthGuard],
   },
   {
-    path: "menu",
+    path: 'menu',
     loadChildren: () =>
-      import("./menu/menu.module").then((m) => m.MenuPageModule),
+      import('./pages/menu/menu.module').then((m) => m.MenuPageModule),
     canLoad: [AuthGuard],
   },
   {
-    path: "about",
+    path: 'about',
     loadChildren: () =>
-      import("./menu/about/about.module").then((m) => m.AboutPageModule),
+      import('./pages/menu/about/about.module').then((m) => m.AboutPageModule),
     canLoad: [AuthGuard],
   },
   {
-    path: "contact",
+    path: 'contact',
     loadChildren: () =>
-      import("./menu/contact/contact.module").then((m) => m.ContactPageModule),
+      import('./pages/menu/contact/contact.module').then(
+        (m) => m.ContactPageModule
+      ),
     canLoad: [AuthGuard],
   },
   {
-    path: "users",
+    path: 'users',
     loadChildren: () =>
-      import("./menu/users/users.module").then((m) => m.UsersPageModule),
+      import('./pages/menu/users/users.module').then((m) => m.UsersPageModule),
     canLoad: [AuthGuard],
   },
   {
-    path: "transaction",
+    path: 'transaction',
     loadChildren: () =>
-      import("./menu/transaction/transaction.module").then(
+      import('./pages/menu/transaction/transaction.module').then(
         (m) => m.TransactionPageModule
       ),
     canLoad: [AuthGuard],
   },
   {
-    path: "store",
+    path: 'store',
     loadChildren: () =>
-      import("./store/store.module").then((m) => m.StorePageModule),
+      import('./pages/store/store.module').then((m) => m.StorePageModule),
     canLoad: [AuthGuard],
   },
   {
-    path: "search",
+    path: 'search',
     loadChildren: () =>
-      import("./menu/search/search.module").then((m) => m.SearchPageModule),
+      import('./pages/menu/search/search.module').then(
+        (m) => m.SearchPageModule
+      ),
     canLoad: [AuthGuard],
   },
 ];

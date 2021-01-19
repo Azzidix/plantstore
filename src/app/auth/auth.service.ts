@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Users } from './users.model';
+import { Users } from '../components/users.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  // tslint:disable-next-line: variable-name
-  private _userIsAuthenticated = false;
-  // tslint:disable-next-line: variable-name
+  private _userIsAuthenticated = true;
   private _userId: string;
-  // tslint:disable-next-line: variable-name
   private _userRole: string;
 
   private user: Users[] = [
