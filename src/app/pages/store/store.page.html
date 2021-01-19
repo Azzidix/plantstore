@@ -14,4 +14,30 @@
     <ion-segment-button value="product">Product</ion-segment-button>
   </ion-segment>
 
+  <div *ngIf="segment === 'product'">
+    <ion-card *ngFor="let plant of plantList">
+      <ion-row>
+        <ion-col size-sm="3" size="3">
+          <ion-img [src]="plant.img"></ion-img>
+        </ion-col>
+        <div>
+          <ion-card-header>
+            <ion-card-title>{{plant.name}}</ion-card-title>
+            <ion-text
+              ><h5>{{plant.price | currency:"$":true:"1.1"}}</h5></ion-text
+            >
+          </ion-card-header>
+          <ion-card-content>
+            {{plant.description}}
+            <ion-buttons>
+              <!-- <ion-button color="primary">Edit</ion-button> -->
+              <ion-button (click)="onDelete(plant.id)" color="danger"
+                >Delete</ion-button
+              >
+            </ion-buttons>
+          </ion-card-content>
+        </div>
+      </ion-row>
+    </ion-card>
+  </div>
 </ion-content>
